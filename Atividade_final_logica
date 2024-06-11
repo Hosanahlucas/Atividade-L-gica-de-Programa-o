@@ -1,0 +1,39 @@
+// DEFINICAO DAS BIBLIOTECAS PARA OS PARAMETROS UTILIZADOS
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // DECLARAÇÃO DAS VARIAVEIS PARA INTEGRAÇÃO DOS MODULOS UTILIZADOS NESSE SISTEMA.
+    char menu_principal, menu_operacional, menu_financeiro, menu_negocios;
+
+    // ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
+    printf("===================================================================================================================\n");
+    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
+    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
+
+    do {
+        // DEFINICAO DO MENU PRINCIPAL COM OS SETORES DEFINIDOS
+        printf("*************************************\n");
+        printf("\nMENU PRINCIPAL, ESCOLHA O SETOR QUE DESEJA TER ACESSO: \n");
+        printf("1. SOCIO_MAJORITARIO\n");
+        printf("2. DIRETORIA_OPERACIONAL\n");
+        printf("3. GESTAO_OPERACIONAL_LOGISTICA\n");
+        printf("4. OPERACIONAL\n");
+        printf("5. ENTRADA_MERCADORIA\n");
+        printf("6. SAIDA_MERCADORIA\n");
+        printf("7. INVENTARIO_MERCADORIA\n");
+        printf("8. SAIR\n");
+        printf("Digite a Opção Desejada: \n");
+        printf("**************************************\n");
+        scanf(" %c", &menu_principal);
+
+        switch (menu_principal) {
+            case '1':
+                printf("\nEscolha o setor que deseja: \n");
+                printf("1. OPERACIONAL\n");
+                printf("2. FINANCEIRO\n");
+                printf("3. ESTOQUE\n");
+                printf("4. RH\n");
+                printf("5. Sair\n");
+                printf("Opcao: ");
+                scanf(" %c", &menu_operacional);
