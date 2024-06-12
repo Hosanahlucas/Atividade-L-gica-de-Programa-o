@@ -1,0 +1,329 @@
+#include <stdio.h>
+// DECLARAÇÃO DAS VARIAVEIS PARA INTEGRAÇÃO DOS MODULOS UTILIZADOS NESSE SISTEMA.
+    char menu_principal, menu_operacional, menu_financeiro, menu_negocios;
+
+    // ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
+    printf("===================================================================================================================\n");
+    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
+    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
+
+int i;
+
+// Definição da estrutura para armazenar informações do funcionário
+struct Funcionario
+{
+    char nome[100];
+    char cpf[15]; // Aumentando para 15 para garantir espaço suficiente[
+    char rg[20];
+    char endereco[150];
+    char telefone[25];
+    int qtd_filhos;
+};
+
+// Função para cadastrar um novo funcionário
+void cadastrarFuncionario(struct Funcionario *funcionarios, int *numFuncionarios)
+{
+    printf("Digite o nome do funcionario: ");
+    scanf("%s", funcionarios[*numFuncionarios].nome);
+    printf("Digite o CPF do funcionario: ");
+    scanf("%s", funcionarios[*numFuncionarios].cpf);
+    printf("Digite o RG do funcionario: ");
+    scanf("%s", funcionarios[*numFuncionarios].rg);
+    printf("Digite o endereco do funcionario: ");
+    scanf("%s", funcionarios[*numFuncionarios].endereco);
+    printf("Digite o telefone do funcionario: ");
+    scanf("%s", funcionarios[*numFuncionarios].telefone);
+    printf("Digite a quantidade de filhos do funcionario: ");
+    scanf("%d", &funcionarios[*numFuncionarios].qtd_filhos);
+    (*numFuncionarios)++;
+}
+
+// Função para exibir informações de todos os funcionários cadastrados
+void exibirFuncionarios(struct Funcionario*funcionarios, int numFuncionarios)
+{
+    printf("=== Funcionarios Cadastrados ===\n");
+    for ( i = 0; i < numFuncionarios; i++)
+    {
+        printf("Nome: %s\n", funcionarios[i].nome);
+        printf("CPF: %s\n", funcionarios[i].cpf);
+        printf("RG: %s\n", funcionarios[i].rg);
+        printf("Endereco: %s\n", funcionarios[i].endereco);
+        printf("Telefone: %s\n", funcionarios[i].telefone);
+        printf("Quantidade de filhos: %d\n", funcionarios[i].qtd_filhos);
+        printf("\n");
+    }
+}
+
+typedef struct
+{
+    int dia, mes, ano;
+}DataFab;
+
+typedef struct
+{
+    DataFab dataFab;
+    char nomePro[100], nomeFor[100];
+    int codigoPro;
+    float valorPro, quantidadeFor;
+}Cadastro;
+
+typedef struct
+{
+    Cadastro cadastro;
+    int codigoPed, totalItens;
+    float quantidadePed;
+}Pedido;
+
+int main()
+{
+    int perguntaMenu;
+    struct Funcionario funcionarios[100]; // Array para armazenar os funcionários
+    int numFuncionarios = 0; 
+    int opcao;
+    int i;
+
+    do
+    {
+        // DEFINICAO DO MENU PRINCIPAL COM OS SETORES DEFINIDOS
+        printf("*\n");
+        printf("\nMENU PRINCIPAL, ESCOLHA O SETOR QUE DESEJA TER ACESSO: \n");
+        printf("1. SOCIO_MAJORITARIO\n");
+        printf("2. DIRETORIA_OPERACIONAL\n");
+        printf("3. GESTAO_OPERACIONAL_LOGISTICA\n");
+        printf("4. OPERACIONAL\n");
+        printf("5. SAIR\n");
+        printf("Digite a Opção Desejada: \n");
+        printf("\n");
+        scanf(" %c", &menu_principal);
+        
+        switch (menu_principal)
+        {
+            case '1':
+                printf("\nEscolha o setor que deseja: \n");
+                printf("1. OPERACIONAL\n");
+                printf("2. FINANCEIRO\n");
+                printf("3. ESTOQUE\n");
+                printf("4. RH\n");
+                printf("5. Sair\n");
+                printf("Opcao: ");
+                scanf(" %c", &menu_operacional);
+                
+                switch (menu_operacional)
+                {
+                    case '1':
+                        printf("Setor OPERACIONAL selecionado.\n");
+                        do
+                        {
+                            printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
+                            printf("1. Pesquisar Mercadoria\n");
+                            printf("2. Cadastrar Mercadoria\n");
+                            printf("3. Entrada de Mercadoria\n");
+                            printf("4. Saída de Mercadoria\n");
+                            printf("5. Inventário de Mercadorias\n");
+                            printf("6. Retornar ao Menu Principal\n");
+                            scanf("%i", &perguntaMenu);
+                            
+                            switch(perguntaMenu)
+                            {
+                                case 1:
+                                
+                                break;
+                                
+                                case 2:
+                                
+                                Cadastro cadastro;
+                                printf("Informe o código do produto: ");
+                                scanf("%i", &cadastro.codigoPro);
+                                printf("Informe o nome do produto: ");
+                                scanf("%s", cadastro.nomePro);
+                                printf("Informe a data de fabricação: ");
+                                scanf("%i%i%i", &cadastro.dataFab.dia, &cadastro.dataFab.mes, &cadastro.dataFab.ano);
+                                
+                                break;
+                                
+                                case 3:
+                                
+                                break;
+                                
+                                case 4:
+                                
+                                break;
+                                
+                                case 5:
+                                
+                                break;
+                                
+                                case 6:
+                                
+                                break;
+                                
+                                default:
+                                
+                                break;
+                            }
+                            
+                            printf("Deseja retornar ao menu operacional? ");
+                            scanf("%i", &perguntaMenu);
+                            
+                        }while(perguntaMenu);
+                        break;
+                    case '2':
+                        printf("Setor FINANCEIRO selecionado.\n");
+                        break;
+                    case '3':
+                        printf("Setor OPERACIONAL selecionado.\n");
+                        do
+                        {
+                            printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
+                            printf("1. Pesquisar Mercadoria\n");
+                            printf("2. Cadastrar Mercadoria\n");
+                            printf("3. Entrada de Mercadoria\n");
+                            printf("4. Saída de Mercadoria\n");
+                            printf("5. Inventário de Mercadorias\n");
+                            printf("6. Retornar ao Menu Principal\n");
+                            scanf("%i", &perguntaMenu);
+                            
+                            switch(perguntaMenu)
+                            {
+                                case 1:
+                                
+                                break;
+                                
+                                case 2:
+                                
+                                Cadastro cadastro;
+                                printf("Informe o código do produto: ");
+                                scanf("%i", &cadastro.codigoPro);
+                                printf("Informe o nome do produto: ");
+                                scanf("%s", cadastro.nomePro);
+                                printf("Informe a data de fabricação: ");
+                                scanf("%i%i%i", &cadastro.dataFab.dia, &cadastro.dataFab.mes, &cadastro.dataFab.ano);
+                                
+                                break;
+                                
+                                case 3:
+                                
+                                break;
+                                
+                                case 4:
+                                
+                                break;
+                                
+                                case 5:
+                                
+                                break;
+                                
+                                case 6:
+                                
+                                break;
+                                
+                                default:
+                                
+                                break;
+                            }
+                            
+                            printf("Deseja retornar ao menu operacional? ");
+                            scanf("%i", &perguntaMenu);
+                            
+                        }while(perguntaMenu);
+                        break;
+                    case '4':
+                        printf("Setor RH selecionado.\n");
+                        do
+                        {
+                            printf("\n=== Menu ===\n");
+                            printf("1. Cadastrar funcionario\n");
+                            printf("2. Exibir funcionarios cadastrados\n");
+                            printf("3. Sair\n");
+                            printf("Escolha uma opcao: ");
+                            scanf("%d", &opcao);
+                            
+                            switch (opcao)
+                            {
+                                case 1:
+                                cadastrarFuncionario(funcionarios, &numFuncionarios);
+                                break;
+                                    
+                                case 2:
+                                exibirFuncionarios(funcionarios, numFuncionarios);
+                                break;
+                                    
+                                case 3:
+                                printf("Saindo...\n");
+                                break;
+                                    
+                                default:
+                                printf("Opcao invalida. Por favor, escolha uma opcao valida.\n");
+                            }
+                        }while(opcao != 3);
+                        break;
+                    case '5':
+                        printf("Saindo do setor SOCIO_MAJORITARIO...\n");
+                        break;
+                    default:
+                        printf("Opcao invalida no setor SOCIO_MAJORITARIO.\n");
+                        break;
+                }
+                break;
+        }
+        printf("Deseja retornar ao Menu Principal? ");
+        scanf("%i", &perguntaMenu);
+    }while(perguntaMenu);
+
+    /*do
+    {
+        printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
+        printf("1. Pesquisar Mercadoria\n");
+        printf("2. Cadastrar Mercadoria\n");
+        printf("3. Entrada de Mercadoria\n");
+        printf("4. Saída de Mercadoria\n");
+        printf("5. Inventário de Mercadorias\n");
+        printf("6. Retornar ao Menu Principal\n");
+        scanf("%i", &perguntaMenu);
+        
+        switch(perguntaMenu)
+        {
+            case 1:
+            
+            break;
+            
+            case 2:
+            
+            Cadastro cadastro;
+            printf("Informe o código do produto: ");
+            scanf("%i", &cadastro.codigoPro);
+            printf("Informe o nome do produto: ");
+            scanf("%s", cadastro.nomePro);
+            printf("Informe a data de fabricação: ");
+            scanf("%i%i%i", &cadastro.dataFab.dia, &cadastro.dataFab.mes, &cadastro.dataFab.ano);
+            
+            break;
+            
+            case 3:
+            
+            break;
+            
+            case 4:
+            
+            break;
+            
+            case 5:
+            
+            break;
+            
+            case 6:
+            
+            break;
+            
+            default:
+            
+            break;
+        }
+        
+        printf("Deseja retornar ao menu operacional? ");
+        scanf("%i", &perguntaMenu);
+        
+    }while(perguntaMenu);*/
+
+    return 0;
+}
