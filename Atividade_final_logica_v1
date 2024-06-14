@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<locale.h>
 // DECLARAÇÃO DAS VARIAVEIS PARA INTEGRAÇÃO DOS MODULOS UTILIZADOS NESSE SISTEMA.
-    char menu_principal, menu_operacional, menu_financeiro, menu_negocios, menu_turno, lista_operacional, ;
+    char menu_principal, menu_operacional, menu_financeiro, menu_negocios, menu_turno, lista_operacional;
 
 int i;
 
@@ -80,134 +80,135 @@ typedef struct
 
 void estoque()
 {
-Cadastro cadastro[20];
+    Cadastro cadastro[20];
 
-printf("Setor ESTOQUE selecionado.\n");
-                        do
-                        {
-                            printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
-                            printf("1. Pesquisar Mercadoria\n");
-                            printf("2. Cadastrar Mercadoria\n");
-                            printf("3. Entrada de Mercadoria\n");
-                            printf("4. Saída de Mercadoria\n");
-                            printf("5. Inventário de Mercadorias\n");
-                            printf("6. Retornar ao Menu Principal\n");
-                            printf("7. Encerrar Programa\n");
-                            scanf("%i", &perguntaMenu);
-                            
-                            switch(perguntaMenu)
-                            {
-                                case 1:
-                                	printf("Insira o código da mercadoria que você deseja consultar: ");
-                                	scanf("%i", &consulta);
-                                	printf("Mercadoria: %i\n", cadastro[consulta].codigoPro);
-                                	printf("Nome: %s\n", cadastro[consulta].nomePro);
-                                	printf("Data de Fabricação: %i/%i/%i\n", cadastro[consulta].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
-                                	printf("Valor: R$ %0.2f\n", cadastro[consulta].valorPro);
-                                	printf("Estoque: %0.2f\n", cadastro[consulta].quantidadeFor);
-                                break;
-                                
-                                case 2:
-                                for(i=25; i<=25; i++)
-                                {
-                                    printf("Informe o código do produto: ");
-                                    scanf("%i", &cadastro[i].codigoPro);
-                                    printf("Informe o nome do produto: ");
-                                    scanf("%s", cadastro[i].nomePro);
-                                    printf("Informe a data de fabricação: ");
-                                    scanf("%i%i%i", &cadastro[i].dataFab.dia, &cadastro[i].dataFab.mes, &cadastro[i].dataFab.ano);
-                                    printf("Informe o valor do produto: R$ ");
-                                    scanf("%f", &cadastro[i].valorPro);
-                                    printf("Informe a quantida disponível do produto: ");
-                                    scanf("%f", &cadastro[i].quantidadeFor);
-                                }
-                                break;
-                                
-                                case 3:
-                                	
-                                break;
-                                
-                                case 4:
-                                	printf("Qual mercadoria você deseja registrar saída? ");
-                                	scanf("%i", &consulta);
-                                	printf("Mercadoria: %i\n", cadastro[consulta].codigoPro);
-                                	printf("Nome: %s\n", cadastro[consulta].nomePro);
-                                	printf("Data de Fabricação: %i/%i/%i\n", cadastro[consulta].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
-                                	printf("Valor: R$ %0.2f\n", cadastro[consulta].valorPro);
-                                	printf("Estoque: %0.2f\n", cadastro[consulta].quantidadeFor);
-                                	printf("Quantos você deseja retirar? ");
-                                	scanf("%f", &consulta2);
-									if(consulta2<=cadastro[consulta].quantidadeFor)
-									{
-										for(i =0; i<consulta2; i++)
-										{
-											cadastro[consulta].quantidadeFor--;
-										}
-										printf("Saída registrada com sucesso, deseja registrar uma nova saída?\n");
-										printf("Opção: ");
-										scanf("%i", &perguntaMenu);
-									}else if(consulta2>cadastro[consulta].quantidadeFor)
-									{
-										printf("Quantidade não disponível no momento\n");
-									}
-                                break;
-                                
-                                case 5:
-                                	for(i=0; i<=25; i++)
-                                	{
-                                	printf("Mercadoria: %i\n", cadastro[i].codigoPro);
-                                	printf("Nome: %s\n", cadastro[i].nomePro);
-                                	printf("Data de Fabricação: %i/%i/%i\n", cadastro[i].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
-                                	printf("Valor: R$ %0.2f\n", cadastro[i].valorPro);
-                                	printf("Estoque: %0.0f\n\n", cadastro[i].quantidadeFor);
-									}
-                                break;
-                                
-                                case 6:
-                                	
-                                break;
-                                default:
-                                
-                                break;
-                            }
-                            
-                            printf("Deseja retornar ao menu operacional? ");
-                            scanf("%i", &perguntaMenu);
-                            
-                        }while(perguntaMenu);
+    printf("Setor ESTOQUE selecionado.\n");
+    do
+    {
+        printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
+        printf("1. Pesquisar Mercadoria\n");
+        printf("2. Cadastrar Mercadoria\n");
+        printf("3. Entrada de Mercadoria\n");
+        printf("4. Saída de Mercadoria\n");
+        printf("5. Inventário de Mercadorias\n");
+        printf("6. Retornar ao Menu Principal\n");
+        printf("7. Encerrar Programa\n");
+        scanf("%i", &perguntaMenu);
+        
+        switch(perguntaMenu)
+        {
+            case 1:
+                printf("Insira o código da mercadoria que você deseja consultar: ");
+                scanf("%i", &consulta);
+                printf("Mercadoria: %i\n", cadastro[consulta].codigoPro);
+                printf("Nome: %s\n", cadastro[consulta].nomePro);
+                printf("Data de Fabricação: %i/%i/%i\n", cadastro[consulta].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
+                printf("Valor: R$ %0.2f\n", cadastro[consulta].valorPro);
+                printf("Estoque: %0.2f\n", cadastro[consulta].quantidadeFor);
+            break;
+            
+            case 2:
+            for(i=25; i<=25; i++)
+            {
+                printf("Informe o código do produto: ");
+                scanf("%i", &cadastro[i].codigoPro);
+                printf("Informe o nome do produto: ");
+                scanf("%s", cadastro[i].nomePro);
+                printf("Informe a data de fabricação: ");
+                scanf("%i%i%i", &cadastro[i].dataFab.dia, &cadastro[i].dataFab.mes, &cadastro[i].dataFab.ano);
+                printf("Informe o valor do produto: R$ ");
+                scanf("%f", &cadastro[i].valorPro);
+                printf("Informe a quantida disponível do produto: ");
+                scanf("%f", &cadastro[i].quantidadeFor);
+            }
+            break;
+            
+            case 3:
+            
+            break;
+              
+            case 4:
+                printf("Qual mercadoria você deseja registrar saída? ");
+                scanf("%i", &consulta);
+                printf("Mercadoria: %i\n", cadastro[consulta].codigoPro);
+                printf("Nome: %s\n", cadastro[consulta].nomePro);
+                printf("Data de Fabricação: %i/%i/%i\n", cadastro[consulta].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
+                printf("Valor: R$ %0.2f\n", cadastro[consulta].valorPro);
+                printf("Estoque: %0.2f\n", cadastro[consulta].quantidadeFor);
+                printf("Quantos você deseja retirar? ");
+                scanf("%f", &consulta2);
+				if(consulta2<=cadastro[consulta].quantidadeFor)
+				{
+					for(i =0; i<consulta2; i++)
+					{
+						cadastro[consulta].quantidadeFor--;
+					}
+					printf("Saída registrada com sucesso, deseja registrar uma nova saída?\n");
+					printf("Opção: ");
+					scanf("%i", &perguntaMenu);
+				}else if(consulta2>cadastro[consulta].quantidadeFor)
+				{
+					printf("Quantidade não disponível no momento\n");
+				}
+            break;
+            
+            case 5:
+                for(i=0; i<=25; i++)
+                {
+                printf("Mercadoria: %i\n", cadastro[i].codigoPro);
+                printf("Nome: %s\n", cadastro[i].nomePro);
+                printf("Data de Fabricação: %i/%i/%i\n", cadastro[i].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
+                printf("Valor: R$ %0.2f\n", cadastro[i].valorPro);
+                printf("Estoque: %0.0f\n\n", cadastro[i].quantidadeFor);
+				}
+            break;
+            
+            case 6:
+                
+            break;
+            default:
+                
+            break;
+        }
+        
+        printf("Deseja retornar ao menu operacional? ");
+        scanf("%i", &perguntaMenu);
+        
+    }while(perguntaMenu);
 }
 
 void RH()
 {
-struct Funcionario funcionarios[100]; // Array para armazenar os funcionários
-                        printf("Setor RH selecionado.\n");
-                        do
-                        {
-                            printf("\n=== Menu ===\n");
-                            printf("1. Cadastrar funcionario\n");
-                            printf("2. Exibir funcionarios cadastrados\n");
-                            printf("3. Sair\n");
-                            printf("Escolha uma opção: ");
-                            scanf("%d", &opcao);
-                            
-                            switch (opcao)
-                            {
-                                case 1:
-                                cadastrarFuncionario(funcionarios, &numFuncionarios);
-                                break;
-                                    
-                                case 2:
-                                exibirFuncionarios(funcionarios, numFuncionarios);
-                                break;
-                                    
-                                case 3:
-                                printf("Saindo...\n");
-                                break;
-                                    
-                                default:
-                                printf("Opcao invalida. Por favor, escolha uma opcao valida.\n");
-                            }
-                        }while(opcao != 3);
+    struct Funcionario funcionarios[100]; // Array para armazenar os funcionários
+    printf("Setor RH selecionado.\n");
+    do
+    {
+        printf("\n=== Menu ===\n");
+        printf("1. Cadastrar funcionario\n");
+        printf("2. Exibir funcionarios cadastrados\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+        
+        switch (opcao)
+        {
+            case 1:
+                cadastrarFuncionario(funcionarios, &numFuncionarios);
+            break;
+                
+            case 2:
+                exibirFuncionarios(funcionarios, numFuncionarios);
+            break;
+                
+            case 3:
+                printf("Saindo...\n");
+            break;
+                
+            default:
+                printf("Opcao invalida. Por favor, escolha uma opcao valida.\n");
+            break;
+        }
+    }while(opcao != 3);
 }
 //FIZ ALTERAÇÕES NESSE MENU PARA FACILITAR OS ACESSOS AOS SETORES E EXECUTAR AS FUNCOES. 
 int main()
@@ -262,8 +263,8 @@ int main()
                 printf("3. SAIR\n");
                 printf("Digite a Opção Desejada: \n");
                 scanf(" %c", &menu_financeiro);
-
-
+                
+                
             case '3':
                 printf("\nBEM VINDO A DIRETORIA DE NEGOCIOS. \n");
                 printf("1. GESTÃO CONTRATOS. \n");
